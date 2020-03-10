@@ -7,6 +7,6 @@ if sprite_index > 0 && sprite_index < 4
 }
 else
 {
-image_index = image_number-1;
-image_speed = 0;
+	image_index = image_number-1;
+	image_speed = 0;
 }
