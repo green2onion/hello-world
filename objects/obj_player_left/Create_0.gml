@@ -6,3 +6,5 @@ event_inherited();
 
 input_left = ord("A");
 input_right = ord("D");
+input_crush = ord("S");
+input_jump = ord("W");

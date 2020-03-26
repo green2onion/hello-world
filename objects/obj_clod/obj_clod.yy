@@ -41,7 +41,50 @@
     "physicsShape": 1,
     "physicsShapePoints": null,
     "physicsStartAwake": true,
-    "properties": null,
+    "properties": [
+        {
+            "id": "ae640733-0971-4316-a94d-3d343ca3b1c2",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "delta_time_y",
+            "varType": 0
+        },
+        {
+            "id": "8e2f2669-ffbd-4d91-88eb-88e29ddbae87",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "velocity_y",
+            "varType": 0
+        },
+        {
+            "id": "2095fe7e-cfc4-43a7-b2d7-60f8ea11a871",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "is_falling",
+            "varType": 3
+        }
+    ],
     "solid": false,
     "spriteId": "4a88772b-1537-4dea-ac79-7f31b6d44277",
     "visible": true

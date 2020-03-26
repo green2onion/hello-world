@@ -1,9 +1,15 @@
 /// @description Insert description here
 // You can write your code in this editor
-/*
-if place_meeting(x,y,obj_char) && instance_place(x,y,obj_char).velocity_y > 0
+
+// y movement
+if is_falling
 {
-	var char = instance_place(x,y,obj_char);
-	char.delta_time_y = 0;
-	//char.initial_velocity_y = -char.velocity_y;
+	delta_time_y += delta_time/1000000;
+	velocity_y = 20*delta_time_y;
+	y += velocity_y;
+}
+
+if y > room_height
+{
+	instance_destroy();
 }

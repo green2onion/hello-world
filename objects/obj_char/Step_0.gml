@@ -5,6 +5,20 @@
 delta_time_y += delta_time/1000000;
 velocity_y = initial_velocity_y + accel_y*delta_time_y;
 velocity_y = clamp(velocity_y, -50,50);
+if keyboard_check_pressed(input_crush)
+{
+	initial_velocity_y = 120;
+	delta_time_y = 0;
+	initial_velocity_x = 0;
+	delta_time_x = 0;
+}
+if keyboard_check_pressed(input_jump) && can_jump
+{
+	initial_velocity_y = -30;
+	delta_time_y = 0;
+	can_jump = false;
+	effect_create_below(ef_spark,x,y,2,c_yellow);
+}
 for (var i = 1; i < abs(round(velocity_y)); i++)
 {
 	var clod = instance_place(x,y+sign(velocity_y),obj_clod);
@@ -12,6 +26,7 @@ for (var i = 1; i < abs(round(velocity_y)); i++)
 	{
 		if velocity_y > 0 && !place_meeting(x, y, clod) && !dead
 		{
+			can_jump = true;
 			initial_velocity_y = -40;
 			delta_time_y = 0;
 			effect_create_below(ef_explosion,clod.x,clod.y,1,c_white);
@@ -29,8 +44,8 @@ for (var i = 1; i < abs(round(velocity_y)); i++)
 				clod.sprite_index = spr_clod_boom_3;
 			}
 			clod.image_index = 0;
-			clod.image_speed = 3;
-			//instance_destroy(clod);
+			clod.image_speed = 1;
+			clod.is_falling = true;
 		}
 	}
 	var char = instance_place(x,y+sign(velocity_y),obj_char);
@@ -39,6 +54,7 @@ for (var i = 1; i < abs(round(velocity_y)); i++)
 		if y<char.y && !place_meeting(x, y, char)
 		{
 			my_score++;
+			can_jump = true;
 			initial_velocity_y = -40;
 			delta_time_y = 0;
 			effect_create_below(ef_star,x+2,y+sign(velocity_y)+2,2,c_yellow);
@@ -135,3 +151,7 @@ else
 		sprite_index = spr_up;
 	}
 }
+
+// shape stretch
+image_xscale = (50-abs(velocity_y)*0.5)/50;
+image_yscale = (abs(velocity_y)+50)/50;

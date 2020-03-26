@@ -3,7 +3,8 @@
 
 if sprite_index > 0 && sprite_index < 4
 {
-	instance_destroy();
+	image_speed = 0;
+	
 }
 else
 {
